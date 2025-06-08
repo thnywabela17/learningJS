@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+    <p>Welcome. Please log in</p>
+    
+    <form onsubmit="verifyUser(event)">
+        <label for="usernameInput">Username:</label>
+        <input type="text" id="usernameInput" required /><br/>
+        
+        <label for="passwordInput">Password:</label>
+        <input type="password" id="passwordInput" required />
+        
+        <p id="message"></p>
+        <br/><br/>
+        
+        <button type="submit">Log in</button>
+    </form>
+    
+    <script>
+        function verifyUser(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+            
+            checkUserCreds(username, password);
+        }
+
+        function checkUserCreds(username, password) {
+            var systemUsername = "Bond";
+            var systemPassword = "007";
+
+            if (username === systemUsername && password === systemPassword) {
+                document.getElementById("message").innerHTML = "Correct login";
+            } else {
+                document.getElementById("message").innerHTML = "Username or password is incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
